@@ -1,0 +1,21 @@
+{% extends 'mainPage/base.html' %}
+{% load staticfiles %}
+
+{% block  news %}
+	<main class="maincontent">
+		<div class="flex-container">
+			<div class="news--wrapper">
+				{% for news in news %}
+					<article class="news__card">
+						<div class="news__descr--wrapper">
+						<h3 class="news__heading">{{ news.title }}</h3>
+						<span class="news__date">{{ news.date }}</span>
+						<p class="news__descr">{{ news.get_short_text }}...</p>
+						<a class="news__readmore" href="/news/{{ news.id }}">Readmore<span class="news__read">→</span></a>
+						</div>
+					</article>
+				{% endfor %}
+			</div>
+		</div>
+	</main>
+{% endblock %}
